@@ -1,0 +1,76 @@
+{
+  "format": 1,
+  "restore": {
+    "H:\\Desenvolvimento_e_TI\\WebSitesSistemas\\Estudo_2021\\CURSO_UDEMY_COGNIZANT_netcore31webapi\\CURSO_UDEMY_COGNIZANT_netcore31webapi.csproj": {}
+  },
+  "projects": {
+    "H:\\Desenvolvimento_e_TI\\WebSitesSistemas\\Estudo_2021\\CURSO_UDEMY_COGNIZANT_netcore31webapi\\CURSO_UDEMY_COGNIZANT_netcore31webapi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "H:\\Desenvolvimento_e_TI\\WebSitesSistemas\\Estudo_2021\\CURSO_UDEMY_COGNIZANT_netcore31webapi\\CURSO_UDEMY_COGNIZANT_netcore31webapi.csproj",
+        "projectName": "CURSO_UDEMY_COGNIZANT_netcore31webapi",
+        "projectPath": "H:\\Desenvolvimento_e_TI\\WebSitesSistemas\\Estudo_2021\\CURSO_UDEMY_COGNIZANT_netcore31webapi\\CURSO_UDEMY_COGNIZANT_netcore31webapi.csproj",
+        "packagesPath": "C:\\Users\\leocr\\.nuget\\packages\\",
+        "outputPath": "H:\\Desenvolvimento_e_TI\\WebSitesSistemas\\Estudo_2021\\CURSO_UDEMY_COGNIZANT_netcore31webapi\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\leocr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
