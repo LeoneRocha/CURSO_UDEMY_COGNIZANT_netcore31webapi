@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CURSO_UDEMY_COGNIZANT_netcore31webapi.Services.CharacterService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +33,8 @@ namespace CURSO_UDEMY_COGNIZANT_netcore31webapi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CURSO_UDEMY_COGNIZANT_netcore31webapi", Version = "v1" });
             });
+            services.AddAutoMapper(typeof(Startup));
+            services.AddScoped<ICharacterService, CharacterService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -27,3 +27,5 @@ H:\Desenvolvimento_e_TI\WebSitesSistemas\Estudo_2021\CURSO_UDEMY_COGNIZANT_netco
 H:\Desenvolvimento_e_TI\WebSitesSistemas\Estudo_2021\CURSO_UDEMY_COGNIZANT_netcore31webapi\obj\Debug\net5.0\ref\CURSO_UDEMY_COGNIZANT_netcore31webapi.dll
 H:\Desenvolvimento_e_TI\WebSitesSistemas\Estudo_2021\CURSO_UDEMY_COGNIZANT_netcore31webapi\obj\Debug\net5.0\CURSO_UDEMY_COGNIZANT_netcore31webapi.pdb
 H:\Desenvolvimento_e_TI\WebSitesSistemas\Estudo_2021\CURSO_UDEMY_COGNIZANT_netcore31webapi\obj\Debug\net5.0\CURSO_UDEMY_COGNIZANT_netcore31webapi.genruntimeconfig.cache
+H:\Desenvolvimento_e_TI\WebSitesSistemas\Estudo_2021\CURSO_UDEMY_COGNIZANT_netcore31webapi\bin\Debug\net5.0\AutoMapper.dll
+H:\Desenvolvimento_e_TI\WebSitesSistemas\Estudo_2021\CURSO_UDEMY_COGNIZANT_netcore31webapi\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
