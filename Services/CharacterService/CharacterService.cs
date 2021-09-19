@@ -50,7 +50,7 @@ namespace CURSO_UDEMY_COGNIZANT_netcore31webapi.Services.CharacterService
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters()
+        public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters(int idUser)
         {
             /*
             var serviceResponse = new ServiceResponse<List<GetCharacterDto>>();
@@ -58,7 +58,7 @@ namespace CURSO_UDEMY_COGNIZANT_netcore31webapi.Services.CharacterService
             return serviceResponse;
             */
             var serviceResponse = new ServiceResponse<List<GetCharacterDto>>();
-            var dbCharacters = await _context.Characters.ToListAsync();
+            var dbCharacters = await _context.Characters.Where(c => c.User.Id == idUser).ToListAsync();
             serviceResponse.Data = dbCharacters.Select(c => _mapper.Map<GetCharacterDto>(c)).ToList();
             return serviceResponse;
         }
