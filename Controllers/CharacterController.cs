@@ -11,6 +11,7 @@ using CURSO_UDEMY_COGNIZANT_netcore31webapi.Dtos.Character;
 namespace CURSO_UDEMY_COGNIZANT_netcore31webapi.Controllers
 {
 
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class CharacterController : ControllerBase
@@ -48,15 +49,15 @@ namespace CURSO_UDEMY_COGNIZANT_netcore31webapi.Controllers
                 return NotFound(response);
             }
             return Ok(response);
-        } 
+        }
         [HttpDelete("{id}")]
         public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> Delete(int id)
         {
             var response = await _characterService.DeleteCharacter(id);
-            if(response.Data == null)
+            if (response.Data == null)
             {
                 return NotFound(response);
-            }//x
+            } 
             return Ok(response);
         }
     }
