@@ -26,9 +26,9 @@ namespace CURSO_UDEMY_COGNIZANT_netcore31webapi.Controllers
         [HttpGet("GetAll")]
         public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> Get()
         {
-            int idUser = int.Parse(User.Claims.FirstOrDefault(c=> c.Type == ClaimTypes.NameIdentifier).Value);
-            
-            return Ok(await _characterService.GetAllCharacters(idUser));
+            int idUser = int.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
+
+            return Ok(await _characterService.GetAllCharacters());
         }
 
         [HttpGet("{id}")]
@@ -59,8 +59,13 @@ namespace CURSO_UDEMY_COGNIZANT_netcore31webapi.Controllers
             if (response.Data == null)
             {
                 return NotFound(response);
-            } 
+            }
             return Ok(response);
+        }
+        [HttpPost("Skill")]
+        public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> AddCharacterSkill(AddCharacterSkillDto newCharacterSkillDto)
+        {
+            return Ok(await _characterService.AddCharacterSkill(newCharacterSkillDto));
         }
     }
 }
