@@ -9,17 +9,24 @@ dotnet add package Microsoft.EntityFrameworkCore.Design
 
 dotnet ef migrations add InitialCreate
 
-
-
 dotnet ef migrations add User
 
 dotnet ef migrations add UserCharacterRelationship
 
 dotnet ef database update
-
  
 dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
 
 dotnet add package Swashbuckle.AspNetCore.Filters
 
+dotnet ef migrations add Weapon
 
+dotnet ef database update
+
+dotnet ef migrations add Skill
+
+dotnet ef database update
+
+dotnet ef migrations add SkillSeeding 
+
+dotnet ef database update

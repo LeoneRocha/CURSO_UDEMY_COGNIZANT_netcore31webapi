@@ -17,6 +17,8 @@ using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Filters;
+using Microsoft.AspNetCore.Http;
+using CURSO_UDEMY_COGNIZANT_netcore31webapi.Services.WeaponService;
 
 namespace CURSO_UDEMY_COGNIZANT_netcore31webapi
 {
@@ -34,6 +36,28 @@ namespace CURSO_UDEMY_COGNIZANT_netcore31webapi
         {
 
             services.AddControllers();
+
+            addDoc(services);
+
+            services.AddAutoMapper(typeof(Startup));
+
+            addServices(services);
+             
+            addORM(services);
+
+            addSecurity(services);
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+        }
+
+        private void addORM(IServiceCollection services)
+        {
+            //\\RAZORCREST
+            services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));            
+        }
+
+        private void addDoc(IServiceCollection services)
+        {
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CURSO_UDEMY_COGNIZANT_netcore31webapi", Version = "v1" });
@@ -46,12 +70,6 @@ namespace CURSO_UDEMY_COGNIZANT_netcore31webapi
                 });
                 c.OperationFilter<SecurityRequirementsOperationFilter>();
             });
-            services.AddAutoMapper(typeof(Startup));
-            addServices(services);
-            //\\RAZORCREST
-            services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            addSecurity(services);
         }
 
         private void addSecurity(IServiceCollection services)
@@ -72,6 +90,7 @@ namespace CURSO_UDEMY_COGNIZANT_netcore31webapi
         private void addServices(IServiceCollection services)
         {
             services.AddScoped<ICharacterService, CharacterService>();
+            services.AddScoped<IWeaponService, WeaponService>();
             services.AddScoped<IAuthRepository, AuthRepository>();
         }
 
@@ -88,8 +107,7 @@ namespace CURSO_UDEMY_COGNIZANT_netcore31webapi
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
-
+ 
             app.UseAuthentication();
 
             app.UseAuthorization();

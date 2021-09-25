@@ -1,4 +1,6 @@
-using System.Collections.Generic; 
+using System.Collections.Generic;
+using CURSO_UDEMY_COGNIZANT_netcore31webapi.Dtos.Skill;
+using CURSO_UDEMY_COGNIZANT_netcore31webapi.Dtos.Weapon;
 using CURSO_UDEMY_COGNIZANT_netcore31webapi.Models;
 
 namespace CURSO_UDEMY_COGNIZANT_netcore31webapi.Dtos.Character
@@ -12,6 +14,8 @@ namespace CURSO_UDEMY_COGNIZANT_netcore31webapi.Dtos.Character
         public int Defense { get; set; } = 10;
         public int Intelligence { get; set; } = 10;
         public RpgClass Class { get; set; } = RpgClass.Knight;
-       
+        public GetWeaponDto Weapon { get; set; }
+
+        public List<GetSkillDto> Skills { get; set; }
     }
 }
