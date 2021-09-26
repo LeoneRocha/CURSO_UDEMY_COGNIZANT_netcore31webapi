@@ -1,5 +1,6 @@
 using AutoMapper;
 using CURSO_UDEMY_COGNIZANT_netcore31webapi.Dtos.Character;
+using CURSO_UDEMY_COGNIZANT_netcore31webapi.Dtos.Fight;
 using CURSO_UDEMY_COGNIZANT_netcore31webapi.Dtos.Skill;
 using CURSO_UDEMY_COGNIZANT_netcore31webapi.Dtos.Weapon;
 using CURSO_UDEMY_COGNIZANT_netcore31webapi.Models;
@@ -13,7 +14,8 @@ namespace CURSO_UDEMY_COGNIZANT_netcore31webapi
             CreateMap<Character, GetCharacterDto>();
             CreateMap<AddCharacterDto, Character>();
             CreateMap<Weapon, GetWeaponDto>();
-            CreateMap<Skill, GetSkillDto>();
+            CreateMap<Skill, GetSkillDto>();            
+            CreateMap<Character, HighscoreDto>();
         }
     }
 }

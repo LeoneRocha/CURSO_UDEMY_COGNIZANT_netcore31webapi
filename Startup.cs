@@ -19,6 +19,7 @@ using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Filters;
 using Microsoft.AspNetCore.Http;
 using CURSO_UDEMY_COGNIZANT_netcore31webapi.Services.WeaponService;
+using CURSO_UDEMY_COGNIZANT_netcore31webapi.Services.FightService;
 
 namespace CURSO_UDEMY_COGNIZANT_netcore31webapi
 {
@@ -42,7 +43,8 @@ namespace CURSO_UDEMY_COGNIZANT_netcore31webapi
             services.AddAutoMapper(typeof(Startup));
 
             addServices(services);
-             
+            addRepositories(services);
+
             addORM(services);
 
             addSecurity(services);
@@ -53,7 +55,7 @@ namespace CURSO_UDEMY_COGNIZANT_netcore31webapi
         private void addORM(IServiceCollection services)
         {
             //\\RAZORCREST
-            services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));            
+            services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         private void addDoc(IServiceCollection services)
@@ -87,11 +89,16 @@ namespace CURSO_UDEMY_COGNIZANT_netcore31webapi
               });
         }
 
+        private void addRepositories(IServiceCollection services)
+        {
+            services.AddScoped<IAuthRepository, AuthRepository>();
+        }
         private void addServices(IServiceCollection services)
         {
             services.AddScoped<ICharacterService, CharacterService>();
             services.AddScoped<IWeaponService, WeaponService>();
-            services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IFightService, FightService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -107,7 +114,7 @@ namespace CURSO_UDEMY_COGNIZANT_netcore31webapi
             app.UseHttpsRedirection();
 
             app.UseRouting();
- 
+
             app.UseAuthentication();
 
             app.UseAuthorization();

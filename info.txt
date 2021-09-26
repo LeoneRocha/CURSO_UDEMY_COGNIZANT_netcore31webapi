@@ -30,3 +30,8 @@ dotnet ef database update
 dotnet ef migrations add SkillSeeding 
 
 dotnet ef database update
+
+dotnet ef migrations add CharacterPropeties
+
+dotnet watch run
+
