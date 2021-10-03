@@ -33,6 +33,7 @@ namespace CURSO_UDEMY_COGNIZANT_netcore31webapi.Services.CharacterService
         }
         private int GetUserId() => int.Parse(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
 
+        private string GetUserRole() => _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Role);
         public async Task<ServiceResponse<List<GetCharacterDto>>> AddCharacter(AddCharacterDto newCharacter)
         {
             /* 
@@ -61,12 +62,27 @@ namespace CURSO_UDEMY_COGNIZANT_netcore31webapi.Services.CharacterService
             serviceResponse.Data = characters.Select(c => _mapper.Map<GetCharacterDto>(c)).ToList();
             return serviceResponse;
             */
+ 
+            int iduser = GetUserId();
+
+            var charactersQuery = _context.Characters
+             .Include(c => c.Weapon)
+             .Include(c => c.Skills)
+             .Where(c => c.User.Id == iduser);
+
+
+            charactersQuery = GetUserRole().Equals("Admin") ? _context.Characters
+                                  .Include(c => c.Weapon)
+                                  .Include(c => c.Skills)
+                                  .Include(c => c.User) : charactersQuery;
+
+            var charactersSel = GetUserRole().Equals("Admin")
+                    ? await charactersQuery.ToListAsync()
+                    : await charactersQuery.Where(c => c.User.Id == GetUserId()).ToListAsync();
+
+
             var serviceResponse = new ServiceResponse<List<GetCharacterDto>>();
-            var dbCharacters = await _context.Characters
-            .Include(c => c.Weapon)
-            .Include(c => c.Skills)
-            .Where(c => c.User.Id == GetUserId()).ToListAsync();
-            serviceResponse.Data = dbCharacters.Select(c => _mapper.Map<GetCharacterDto>(c)).ToList();
+            serviceResponse.Data = charactersSel.Select(c => _mapper.Map<GetCharacterDto>(c)).ToList();
             return serviceResponse;
         }
 

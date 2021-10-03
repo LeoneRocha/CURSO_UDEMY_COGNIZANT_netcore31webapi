@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CURSO_UDEMY_COGNIZANT_netcore31webapi.Models
 {
@@ -9,5 +10,7 @@ namespace CURSO_UDEMY_COGNIZANT_netcore31webapi.Models
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
         public List<Character> Characters { get; set; }
+        [Required]
+        public string Role { get; set; }
     }
 }

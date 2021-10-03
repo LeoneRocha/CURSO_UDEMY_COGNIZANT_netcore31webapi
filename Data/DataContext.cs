@@ -25,6 +25,8 @@ namespace CURSO_UDEMY_COGNIZANT_netcore31webapi.Data
                 new Skill { Id = 3, Name = "Dark Hole", Damage = 100 },
                 new Skill { Id = 4, Name = "Blizzard", Damage = 50 }
             );
+
+            modelBuilder.Entity<User>().Property(u => u.Role).HasDefaultValue("Player");
         }
     }
 }

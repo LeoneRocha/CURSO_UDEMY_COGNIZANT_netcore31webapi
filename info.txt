@@ -35,3 +35,6 @@ dotnet ef migrations add CharacterPropeties
 
 dotnet watch run
 
+
+dotnet ef migrations add Role
+

@@ -11,9 +11,11 @@ using CURSO_UDEMY_COGNIZANT_netcore31webapi.Dtos.Character;
 namespace CURSO_UDEMY_COGNIZANT_netcore31webapi.Controllers
 {
 
+    //[Authorize(Roles = "Player")]
     [Authorize]
     [ApiController]
     [Route("[controller]")]
+
     public class CharacterController : ControllerBase
     {
         private readonly ICharacterService _characterService;
@@ -23,10 +25,11 @@ namespace CURSO_UDEMY_COGNIZANT_netcore31webapi.Controllers
             _characterService = characterService;
         }
 
+        //[AllowAnonymous]
         [HttpGet("GetAll")]
         public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> Get()
         {
-            int idUser = int.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
+            //int idUser = int.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
 
             return Ok(await _characterService.GetAllCharacters());
         }

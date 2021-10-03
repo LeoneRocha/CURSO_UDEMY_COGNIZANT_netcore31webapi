@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using CURSO_UDEMY_COGNIZANT_netcore31webapi.Dtos.Skill;
+using CURSO_UDEMY_COGNIZANT_netcore31webapi.Dtos.User;
 using CURSO_UDEMY_COGNIZANT_netcore31webapi.Dtos.Weapon;
 using CURSO_UDEMY_COGNIZANT_netcore31webapi.Models;
 
@@ -19,6 +20,8 @@ namespace CURSO_UDEMY_COGNIZANT_netcore31webapi.Dtos.Character
         public List<GetSkillDto> Skills { get; set; }
         public int Fights { get; set; }
         public int Victories { get; set; }
-        public int Defeats { get; set; }
+        public int Defeats { get; set; } 
+        
+        public GetUserDto User { get; set; } 
     }
 }
